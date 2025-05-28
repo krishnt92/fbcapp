@@ -1,0 +1,23 @@
+<div class="dashboard-container">
+  <h1>Flowers By Colour</h1>
+  <p>Select a colour to filter flower photos:</p>
+
+  <div class = "totals-container">
+    <div class="total all">
+      <h2>All Flowers</h2>
+      <p >Total Photos: <span *ngIf = "!!photosResponse?.total"> {{photosResponse?.total}} </span> <span *ngIf = "!photosResponse?.total">0</span> </p>
+  </div>
+
+  <div class="button-group">
+    <button class = "filter-button all" (click)="filterPhotos('all')">All Photos</button>
+    <button class = "filter-button red" (click)="filterPhotos('red')">Red Photos</button>
+    <button class = "filter-button green" (click)="filterPhotos('green')">Green Photos</button>
+    <button class = "filter-button blue" (click)="filterPhotos('blue')">Blue Photos</button>
+  </div>
+
+  <div *ngIf = "photos?.length! > 0" class="photos-container">
+    <div *ngFor="let photo of photos" class="photo-card">
+      <img [src]="getImageURL(photo)" alt="{{ photo?.title }}" class="photo-image">
+      <p class="photo-description">{{ photo?.title }}</p>
+    </div>
+</div>
