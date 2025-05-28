@@ -3,7 +3,7 @@ import { PhotoResponse } from './photo-store.model';
 
 export const loadPhotos = createAction(
   '[Photo/API] Load Photos',
-  props<{ color: string | null}>()
+  props<{ color: string | null, page?: number }>()
 );
 
 export const loadPhotosSuccess = createAction(

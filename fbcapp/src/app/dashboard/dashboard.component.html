@@ -8,11 +8,17 @@
       <p >Total Photos: <span *ngIf = "!!photosResponse?.total"> {{photosResponse?.total}} </span> <span *ngIf = "!photosResponse?.total">0</span> </p>
   </div>
 
-  <div class="button-group">
-    <button class = "filter-button all" (click)="filterPhotos('all')">All Photos</button>
-    <button class = "filter-button red" (click)="filterPhotos('red')">Red Photos</button>
-    <button class = "filter-button green" (click)="filterPhotos('green')">Green Photos</button>
-    <button class = "filter-button blue" (click)="filterPhotos('blue')">Blue Photos</button>
+<div class="button-group">
+  <button class="filter-button all" (click)="filterPhotos('all')" [ngClass]="{'active': selectedColor === 'all'}">All
+    Photos</button>
+  <button class="filter-button red" (click)="filterPhotos('red')" [ngClass]="{'active': selectedColor === 'red'}">Red
+    Photos</button>
+  <button class="filter-button green" (click)="filterPhotos('green')"
+    [ngClass]="{'active': selectedColor === 'green'}">Green Photos</button>
+  <button class="filter-button blue" (click)="filterPhotos('blue')" [ngClass]="{'active': selectedColor === 'blue'}">Blue
+    Photos</button>
+  
+  <button class="filter-button yellow" (click)="addMorePhotos()"> Add More</button>
   </div>
 
   <div *ngIf = "photos?.length! > 0" class="photos-container">

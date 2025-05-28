@@ -9,8 +9,8 @@ export class PhotoEffects {
   loadPhotos$ = createEffect(() =>
     this.actions$.pipe(
       ofType(PhotoActions.loadPhotos),
-      mergeMap(({ color }) =>
-        this.photoService.getPhotos(color).pipe(
+      mergeMap(({ color, page }) =>
+        this.photoService.getPhotos(color, page).pipe(
           map((photos) => PhotoActions.loadPhotosSuccess({ photos })),
           catchError((error) => of(PhotoActions.loadPhotosFailure({ error })))
         )
