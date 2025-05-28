@@ -42,7 +42,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.store.select(state => state.photos.loading).subscribe(loading => {
       if (loading) {
         console.log('Loading photos...');
-        this.photos = [];
       } else {
         console.log('Photos loaded successfully.');
       }
