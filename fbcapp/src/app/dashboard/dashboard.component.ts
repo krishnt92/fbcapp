@@ -64,6 +64,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   public filterPhotos(color?: string): void {
     let filterColor = null;
+    this.photos = [];
     if (color === 'red') filterColor = '0';
     else if (color === 'green') filterColor = '5';
     else if (color === 'blue') filterColor = '8';
